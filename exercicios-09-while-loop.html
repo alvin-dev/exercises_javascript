@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercícios - While Loop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+
+// while -  axecuta um codigo true, fica executando sem parar ate ela ser false ou vc para-la
+
+var contador = 0;
+while (contador < 5){
+    console.log(contador);
+    ++contador; // incrementa a var contador, ela foi declarada como 0 e vai almentando ate 4, depois do 5 ela se torna false.
+}
+
+// break - é um metodo que força a parada do loop ou while
+
+var contador = 0;
+    while (contador <= 5){
+        if (contador === 3){
+            break;
+        }
+        console.log(contador);
+        ++contador;    
+}
+
+var pingpong = 0;
+
+while (pingpong < 100){
+    if (pingpong % 3 === 0 && pingpong % 5 === 0){
+        console.log(`${pingpong} - Ping Pong`);
+    }
+    else if (pingpong % 3 === 0){
+            console.log(`${pingpong} - Ping`);
+    }else if (pingpong % 5 === 0){
+            console.log(`${pingpong} - Pong`);
+    }
+    ++pingpong;
+}
+
+
+</script>    
+</body>
+</html>

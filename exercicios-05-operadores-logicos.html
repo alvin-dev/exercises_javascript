@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercícios - Operaores Logicos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    
+<script>
+    
+// negar um boleano usando "!" sinal de negação
+
+var a = true;
+var b = false;
+
+console.log(!a); // var a foi definido como true mas vai exibir false
+console.log(b);
+
+console.log( "!!a", !!a); //dupla negação >false >true
+
+//null, undefined, '', false, 0
+
+//mais usados nesses exemplos 
+
+console.log(null); 
+console.log(!null);
+console.log(!!null);
+
+console.log(undefined);
+console.log(!undefined);
+console.log(!!undefined);
+
+console.log("");
+console.log(!"");
+console.log(!!"");
+
+console.log(0);
+console.log(!0);
+console.log(!!0);
+
+//operador and "&&", retorna a valor das expressões se todas forem verdadeiras com o ultimo valor 
+
+console.log(10 && 'texto' && 'programador');
+
+console.log(null && 'programador'); //ja retorna o primeiro valor null
+
+console.log('passa' && 0 && 'Dev');
+
+console.log('passou' && 0);
+
+console.log('false' && 100 && '' && 'teste' && null);
+
+console.log(10 > 5 && 7 <10);
+
+//operador ou "||" retorna qualquer expressão verdadeira 
+
+console.log(null || 'programador');
+
+console.log(null || 'programador' || 26); //pega o primeiro valor verdadeiro
+
+console.log(null || '' || 26);
+
+console.log('programador' || 'teste');
+
+console.log(10 > 5 || 10 < 11);
+
+console.log(10 < 5 || 10 > 11);
+
+// usando || e && (o && tem prioridade sobre o ||)
+
+console.log('programador' && 2050 || '' && 26);
+
+console.log('programador' && 2050 && 'teste' || 0); 
+
+console.log(null || !''&& 'programador'); 
+
+</script>
+
+</body>
+</html>

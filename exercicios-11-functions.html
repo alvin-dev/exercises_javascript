@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Functions</title>
+</head>
+<body>
+
+<script>
+
+function escreva() {
+    console.log('Ola Mundo !!');
+}
+
+escreva();
+
+function escrevaMensagem(mensagem){
+    console.log(mensagem);
+}
+
+escrevaMensagem('Hello World !!');
+escrevaMensagem('Alvaro Guedes');
+
+function soma(a, b){
+    return a + b;
+}
+
+var a = 5; 
+var b = 10;
+
+console.log(soma(5, 5));
+console.log(soma(a, b));
+
+
+function somaTudo(numeros){
+     var total = 0;
+     for (var num of numeros){
+         total = total + num;
+     }
+     return total;
+}
+
+var arrayNum = [2, 13, 4, 18, 5];
+var resultado = somaTudo(arrayNum);
+console.log('Soma Tudo: ', resultado);
+
+// parametro rest - quando vc não sabe quantos parametros sua função vai receber
+
+function tiposCarros (modelo, cor, rodas, ...adicionais){
+    console.log(modelo);
+    console.log(cor);
+    console.log(rodas);
+
+    console.log(adicionais);
+}
+
+tiposCarros('Mustang', 'Branco', 'Aro 16', 'esportivo', 'adesivo preto', 'banco de couro');
+
+// função auto invocavel - ajuda a proteger a função para não conflitar com outra lib que tenha função similar 
+
+(function autoExecuta(){ //sintax da função auto executavel 
+    console.log('Executei');
+}());
+
+(function autoExecutando(nome){ //pode passar variavel 
+    console.log('Executei', nome);
+}('Alvaro'));
+
+// armazenar função em variavel
+
+var somarDoisNumeros = function somando(a, b){
+    return a + b;
+};
+
+console.log(somarDoisNumeros(10, 5));
+
+//função anonima - geralmente quando vc armazena uma função em uma variavel 
+
+var somarTresNumeros = function (a, b, c){ //por ser anonima eu não utilizo o "somando"
+    return a + b + c;
+};
+
+console.log(somarTresNumeros(5, 10, 5));
+
+// função call back - funções com parametros de outras funções e executadas dentro de si 
+
+function somaCallback (a, b, fnCallback) {
+    return fnCallback(a + b); 
+};
+
+console.log(somaCallback(10, 3, function(total){
+    return total * 2;
+}));
+
+//2ª forma de fazer 
+
+function somaCallback (a, b, fnCallback) {
+    return fnCallback(a + b); 
+};
+
+var multiplica = function(total){ //usando uma variavel para armazenar outra função e uso ela como call back
+    return total * 2;
+};
+
+console.log(somaCallback(10, 3, multiplica)); // callback aqui 
+
+console.log(somaCallback(5, 2, function(total){
+    return total + 20;
+}));
+
+console.log(somaCallback(10, 20, function(total){
+    return total / 2;
+}));
+
+//ECMA Script 6, valores default para parametros  
+
+function escreveNome(nome = 'Guedes', idade = 26){ // valor padrão caso eu não declare 
+    console.log(nome);
+    console.log(idade);
+}
+
+escreveNome();
+
+</script>
+    
+</body>
+</html>

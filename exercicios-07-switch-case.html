@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercícios - Switch Case</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<script>
+// outra forma de fazer if else 
+
+var cor = 'amarelo';
+
+switch(cor){
+    case 'azul':
+    console.log('Cor Azul');
+    break; // freia o codigo caso esse case seja o correspondente 
+
+    case 'amarelo':
+    console.log('Cor Amarelo');
+    break;
+
+    case 'vermelho':
+    console.log('Cor Vermelho');
+    break; 
+}
+
+switch(cor){
+    case 'azul':
+    console.log('Cor Azul');
+    break; // freia o codigo caso esse case seja o correspondente 
+
+    case 'verde':
+    console.log('Cor Verde');
+    break;
+
+    case 'vermelho':
+    console.log('Cor Vermelho');
+    break; 
+
+    // valor padrão caso não encontre o que procura naa anteriores
+    default: 
+    console.log('Cor Rosa');
+    break;
+}
+
+// multi case 
+switch (cor) {
+    case 'vermelho':
+    case 'amarelo':
+    case 'laranja':
+    console.log('Cor Quente!!');
+    break;
+
+    case 'verde':
+    case 'azul':
+    case 'roxo':
+    console.log('Cor Fria!');
+    break;
+
+    default: 
+    console.log('Não identificado!');
+    break;
+}
+
+</script>
+    
+</body>
+</html>

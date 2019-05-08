@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercícios - Array</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<script>
+//Array JavaScript são usadas para armazenar vários valores em uma única variável.
+
+var numeros = [5, 3 ,12, 17, 10, 99];
+console.log(numeros);
+
+console.log(numeros[2] + ' Na posição 2'); //pega o valor 12 na posição 2 do array
+
+console.log(numeros[5] + ' Na posição 5');
+console.log(numeros[0] + ' Na posição 0');
+
+//propriedade .length mostra a quantidade de elementos que tem um array
+
+console.log(numeros.length + ' Valores');
+
+// pop method - remove o ultimo elemento array 
+
+console.log(numeros.pop() + ' Removido do array');
+console.log(numeros);
+
+// slice Method - retorna uma fatia de um array 
+
+console.log(numeros.slice(2, 5)); // valor inicial e final 
+
+console.log(numeros.slice(3)); // quando so tem um valor inicial ele pega todo o restante...
+
+//join() - pega o valor de um array e transforma em uma string .
+
+console.log(numeros.join('-|-')); // define um separador 
+
+var usuario = [
+    'Alvaro',
+    26,
+    'Alvin',
+    2019,
+    'Brasileiro'
+];
+
+console.log(usuario);
+
+usuario.push('RJ'); // push - add novo array
+
+console.log(usuario);
+
+//includes - pequisa um valor no meu array e retorna true ou false 
+
+console.log(usuario.includes('Brasileiro'));
+console.log(usuario.includes('Japones'));
+
+// indexOf retorna a posição que esta o array
+
+console.log(usuario.indexOf(2019));
+console.log(usuario.indexOf(2015)); // se nao encontrar o array procurado ele retorna -1
+
+//concat() - juntar 2 array separados em um só 
+
+var arr1 = [3, 2, 1];
+var arr2 = ['Programador', 'Alvaro', 'Front-end' ];
+
+var uniao = arr1.concat(arr2);
+
+console.log(uniao);
+
+// pode-se juntar 2 e adicionar mais 1
+
+var uniao2 = arr1.concat(arr2).concat([1, 2, 3, 'txt', 'number']);
+
+// ou tudo no mesmo concat:
+//var uniao2 = arr1.concat(arr2, [1, 2, 3, 'txt', 'number']);
+
+console.log(uniao2);
+
+// novo modo de juntar arrays
+
+console.log( [...arr1, ...arr2, ...['txt', 'number']]); // ... para juntar tudo em um so 
+
+var nome = usuario[0];
+var idade = usuario[1];
+var ano = usuario[3];
+console.log(nome, idade, ano);
+
+// metodo novo de fazer o q foi feito acima (array destructuring)
+
+var [mNome, mIdade, , mAno] = usuario;
+console.log(mNome, mIdade, mAno)
+
+
+
+
+</script>
+    
+</body>
+</html>

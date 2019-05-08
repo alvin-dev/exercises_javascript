@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Objetos 2</title>
+</head>
+<body>
+<script>
+
+    var novoUsuario ={
+        nome: 'Alvaro',
+        idade: 26,
+        pais: 'Brasil',
+        caixapostal: 'alvinweeb@gmail.com'
+    }
+
+    // armazenar as chaves em variaveis da forma tradicional 
+
+    var nome = novoUsuario.nome;
+    var pais = novoUsuario.pais;
+    
+    console.log(nome);
+    console.log(pais);
+
+    // ECMAScript 6 - forma mais curta
+    
+    var {nome, idade} = novoUsuario; //sintax - entre chaves declaro a key do object e transforma em variavel 
+    console.log(idade);
+    
+    var {nome} = novoUsuario;
+
+    // extrai uma propriedade e muda o nome 
+    var { caixapostal: email } = novoUsuario;
+    console.log(email);
+
+    //extraindo uma sub propriedade
+
+    //forma tradicional
+    var novoUsuario2 = {
+        nome: {
+            primeiro: 'Alvaro',
+            ultimo: 'Bezerra'
+        }
+    };
+    var primeiro = novoUsuario2.nome.primeiro;
+    console.log(primeiro);
+
+    //forma resumida
+    var {nome: {ultimo}} = novoUsuario2;
+    console.log(ultimo);
+
+    //Alterando a propriedade ultimo
+    var {nome: {ultimo: lastName}} = novoUsuario2;
+    console.log(lastName);
+
+    //add uma key/propriedade -  valor default 
+    var {nome: {segundo = 'Guedes'}} = novoUsuario2;
+    console.log(segundo);
+
+    //
+    function imprimeUsuario({nome, idade, sexo, pais = 'Brasil'}){
+        console.log(nome);
+        console.log(idade);
+        console.log(sexo);
+        console.log(pais);
+    };
+
+    var usuarioFunction = {
+        nome: 'Alvaro Guedes',
+        idade: 26,
+        sexo: 'M'
+    }; 
+    imprimeUsuario(usuarioFunction);
+
+    // parametro Object
+
+    console.log(Object.keys(usuarioFunction)); //imprime as keys 
+
+    console.log(Object.values(usuarioFunction)); //imprime os valores das keys 
+
+    // trabalhando com loop for 
+
+    var props = Object.keys(usuarioFunction);
+    
+    for (var i = 0; i < props.length; i++){
+        //console.log(props[i]);
+        console.log(usuarioFunction[props[i]])
+    }
+
+    // loop for of 
+    
+    for (var prop of props){
+        console.log('usuarioFunction:', usuarioFunction[prop])
+    }
+
+    // for in - proprio para objetos 
+
+    for (var prop2 in usuarioFunction){
+        //console.log(prop2); //exibe só as propriedades do objeto
+        //console.log(usuarioFunction[prop2]); // exibe os valores 
+        if(usuarioFunction.hasOwnProperty(prop2)){ // garante que não vai imprimir alguma propriedade erdada
+            console.log(prop2, ":", usuarioFunction[prop2]);
+        };
+    };
+
+
+
+
+
+</script>
+</body>
+</html>

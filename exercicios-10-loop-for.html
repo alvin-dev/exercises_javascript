@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Exercícios - Loop For </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>    
+
+<script>
+
+// semelhante ao while só que mais simples, tbm mais usado
+
+// for(inicializador; condicional; interação)
+
+for (contador = 0; contador < 10; contador ++) {
+    console.log(contador);
+}
+
+// length - conta quantos elementos no array
+
+var numerosAleatorios = [2, 5, 3, 7, 15, 45, 25];
+for (contador = 0; contador < numerosAleatorios.length; contador++){
+    console.log(`${contador} - ${numerosAleatorios[contador]}`);
+}
+
+// com decremento i--
+for (var i = numerosAleatorios.length -1; i >= 0; i--){
+    console.log(`Posição ${i} com decremento: ${numerosAleatorios[i]}`);
+}
+
+// auguns valores do for são opcionais (podendo ser declarado fora)
+
+var i = 0; // inicializador fora
+for (; i < numerosAleatorios.length;){
+    console.log(`Sem valor inicial e incremento: ${numerosAleatorios[i]}`);
+    i++ // contador separado 
+}
+
+var condicao = true;
+var contador = 1;
+for (; condicao;){
+    if (contador % 5 === 0){ //quando contador for multiplo de 5 e =0
+        condicao = false;
+    };
+    console.log(`Condição boleana simples: ${contador}`);
+    ++contador;
+}
+
+//break
+
+for (var i = 0; i < 10; i++) {
+    if (i === 5){
+        break;
+    }
+    console.log(`Utilizando break: ${i}`);
+}
+
+//continue - continua executando um loop apos uma condição 
+
+for(var i = 0; i < 50; i++){
+    if(i % 2 === 0){ //todo numero que for multiplo de 2 não vai imprimir 
+        continue; 
+    }
+    console.log(`Utilizando continue: ${i}`);
+}
+
+for(var i = 0; i < 50; i++){
+    if(i % 2 !== 0){ //só os numeros pares 
+        continue; 
+    }
+    console.log(`Utilizando continue: ${i}`);
+}
+
+// for of 
+
+var numerosAleatorios = [3, 5, "Alvaro", 10, 2, 19, 21, 13];
+for (var num of numerosAleatorios){ // armazena o valor do array na variavel "num"
+    console.log('for of', num)
+}
+
+//no normal ficaria assim 
+for(var i = 0; i < numerosAleatorios.length; i++){
+    console.log('for normal', numerosAleatorios[i]);
+}
+
+// um loop dentro de outro loop 
+
+for (var i = 1; i <= 5; i++){
+    for (var j = 1; j <= 50; j++){
+        if (j % 2 === 0){ // sempre que for par não imprime 
+            continue;   // só imprime os impares 
+        }
+        if (j > 5){
+            break;
+        }
+        console.log(`i: ${i}; j: ${j}`);
+    }
+}
+
+for (var i = 0; i < 100; i++ ){
+    if (i % 3 === 0 && i % 5 === 0){
+        console.log(i, "PING PONG");
+    } else if (i % 3 === 0) {
+        console.log(i, "PING");
+    }else if (i % 5 === 0){
+        console.log(i, "PONG");
+    }
+}
+
+/*var quarteto = ["M.Invisivel", "S.Fantastico", "T.Humana", "Coisa"];
+
+for (var all of quarteto){
+    console.log( all );
+}
+
+for (var i = 0; i < quarteto.length; i++ ){
+    console.log( `${i + 1} - ${quarteto[i]}`);
+}*/
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos</title>
+</head>
+<body>
+<script>
+
+//Objeto - como se fosse variaveis dentro de variaveis 
+
+var usuario = {
+    nome: 'Alvaro',
+    idade: 26,
+    nacionalidade: 'Brasileiro'
+}; // chaves pra dizer que é um objeto
+
+console.log(usuario);
+console.log(usuario.idade); //posso usar apenar um valor 
+console.log(usuario.nome);
+
+console.log(usuario['nacionalidade']); //forma diferente 
+
+// add nova propriedade apos ter sido criado 
+usuario.ano = 2019;
+console.log(usuario);
+console.log(usuario.ano);
+
+//deletar uma propriedade 
+delete usuario.idade;
+console.log(usuario);
+
+// posso passar outros valores para um objeto, array, function, objetos, stc...
+
+// add um array
+usuario.hobbie = ['Música', 'Programar', 'Viajar']; 
+console.log(usuario);
+
+//add outro objeto
+usuario.competencias = {
+    linguagens: ['CSS', 'HTML', 'JavaScript'],
+    carro: 'Mustang'
+};
+console.log(usuario);
+
+//add função ao objeto
+var usuario2 = {
+    digaOi: function(name){
+        return `Olá ${name}`;
+    }
+};
+console.log(usuario2.digaOi('Alvaro'));
+
+//forma curta de declarar uma função dentro d um objeto
+var usuario2 = {
+    digaOi(name){ //forma simples 
+        return `Olá ${name}`;
+    }
+};
+console.log(usuario2.digaOi('Guedes'));
+
+// variavel em uma chave de ojeto
+var cor = 'Azul'; 
+var usuario3 = {
+    nome: 'Alvaro',
+    cor: cor, // esta chave revebe o valor da variavel acima
+};
+console.log(usuario3);
+
+// ECMAScript 6 
+var cor = 'Azul';
+var idade = 26;
+var usuario3 = {
+    nome: 'Alvaro',
+    cor, // é só declarar o nome da variavel
+    idade
+};
+console.log(usuario3);
+
+//Merge de objetos
+var usuario4 = {
+    nome: 'Alvaro',
+    idade: 26
+};
+
+var extraInfo = {
+    pais: 'Brasil',
+    estado: 'Rio de Janeiro'
+}
+
+var mergeObjetos = Object.assign({}, usuario4, extraInfo);//a chaves vazias{} significa que vai gerar um objeto novo dos objetos masclados
+console.log(mergeObjetos);
+ 
+ //Merge com ECMAScript 6
+
+ var mergeObjetos2 = {
+     ...usuario4, // os 3 pontos cria um novo obj e espalha as chaves 
+     ...extraInfo,
+     sexo: "M", //posso passar outras chaves 
+     profissao: "programador" 
+ };
+ console.log(mergeObjetos2);
+
+
+//getters e setters 
+
+var usuarios = [
+    {
+        nome: 'Alvaro',
+        idade: 26
+    },
+    {
+        nome: 'Ayrton',
+        idade: 26
+    },
+    {
+        nome: 'Ana',
+        idade: 20
+    }
+];
+
+console.log(usuarios); //print all
+console.log(usuarios[2]); //print select key
+console.log(usuarios[1].nome); //print select key name 
+
+var usuario = {
+    posicao: 0,
+    get atual(){ //get - retornar um valor 
+        return usuarios[this.posicao];
+    },
+    set atual(posicao){ //set - definir um valor 
+        this.posicao = posicao;
+    },
+    proximo(){
+        ++this.posicao;
+    },
+    anterior(){
+        --this.posicao;
+    }
+};
+
+console.log(usuario.atual); // { nome: 'Alvaro', idade: 26 }
+usuario.proximo();
+
+console.log(usuario.atual); //{ nome: 'Ayrton', idade: 26 }
+
+usuario.proximo();
+console.log(usuario.atual); //{ nome: 'Ana', idade: 20 }
+
+usuario.anterior();
+console.log(usuario.atual); //{ nome: 'Ayrton', idade: 26 }
+
+usuario.atual = 0;
+console.log(usuario.atual); // { nome: 'Alvaro', idade: 26 }
+
+usuario.atual = 2;
+console.log(usuario.atual); //{ nome: 'Ana', idade: 20 }
+
+</script>
+</body>
+</html>
